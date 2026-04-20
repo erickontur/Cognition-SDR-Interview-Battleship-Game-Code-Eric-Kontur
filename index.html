@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Battleship — You vs AI</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>⚓ Battleship</h1>
+    <p class="subtitle">You vs the Computer</p>
+  </header>
+
+  <main>
+    <section id="status-bar">
+      <div id="phase-indicator">Place your ships</div>
+      <div id="message">Click a ship below, then click your grid to place it. Press <kbd>R</kbd> or the Rotate button to change orientation.</div>
+    </section>
+
+    <section id="placement-controls" class="controls">
+      <div id="fleet-picker"></div>
+      <div class="buttons">
+        <button id="rotate-btn" type="button">Rotate (R): Horizontal</button>
+        <button id="auto-place-btn" type="button">Auto-place</button>
+        <button id="reset-placement-btn" type="button">Reset</button>
+        <button id="start-btn" type="button" disabled>Start Battle</button>
+      </div>
+    </section>
+
+    <section id="battle-controls" class="controls hidden">
+      <div id="score">
+        <div><strong>Your ships left:</strong> <span id="player-ships-left">5</span></div>
+        <div><strong>Enemy ships left:</strong> <span id="enemy-ships-left">5</span></div>
+      </div>
+      <div class="buttons">
+        <button id="new-game-btn" type="button">New Game</button>
+      </div>
+    </section>
+
+    <section id="boards">
+      <div class="board-wrapper">
+        <h2>Your Waters</h2>
+        <div id="player-board" class="board" aria-label="Your board"></div>
+      </div>
+      <div class="board-wrapper">
+        <h2>Enemy Waters</h2>
+        <div id="enemy-board" class="board" aria-label="Enemy board"></div>
+      </div>
+    </section>
+
+    <section id="legend">
+      <span class="swatch ship"></span> Ship
+      <span class="swatch hit"></span> Hit
+      <span class="swatch miss"></span> Miss
+      <span class="swatch sunk"></span> Sunk
+    </section>
+  </main>
+
+  <div id="game-over" class="modal hidden">
+    <div class="modal-content">
+      <h2 id="game-over-title">Victory!</h2>
+      <p id="game-over-text"></p>
+      <button id="play-again-btn" type="button">Play Again</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>A simple Battleship game. Refresh to restart anytime.</p>
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
